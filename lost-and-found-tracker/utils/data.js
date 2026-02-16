@@ -4,7 +4,7 @@ export const builtInRawData = [
       itemType: "Lunchbox",
       condition: "good",
       description: "Large sized, slightly ripped at the handle",
-      img: "../lost-and-found-tracker/images/img1.jpeg",
+      img: "../images/img1.jpeg",
       isFound: false
     },
     {
