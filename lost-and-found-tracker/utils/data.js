@@ -4,7 +4,7 @@ export const builtInRawData = [
       itemType: "Lunchbox",
       condition: "good",
       description: "Large sized, slightly ripped at the handle",
-      img: "./lost-and-found-tracker/images/img1.jpeg",
+      img: "../lost-and-found-tracker/images/img1.jpeg",
       isFound: false
     },
     {
@@ -28,14 +28,6 @@ export const builtInRawData = [
       itemType: "backpack",
       condition: "not very good",
       description: "Black kinetics backpack, damaged zipper with 7th grader books inside.",
-      img: "./lost-and-found-tracker/images/img5.jpeg",
-      isFound: false
-    },
-    {
-      id: 6,
-      itemType: "backpackkkkkkkk",
-      condition: "not very good",
-      description: "White kinetics backpack, damaged zipper with 7th black books inside.",
       img: "./lost-and-found-tracker/images/img5.jpeg",
       isFound: false
     }

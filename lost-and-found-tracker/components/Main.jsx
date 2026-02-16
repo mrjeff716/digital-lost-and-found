@@ -1,5 +1,5 @@
 import { rawData, builtInRawData } from "../utils/data.js"
-import RenderData from "../utils/renderData.jsx"
+import RenderData from "./renderData.jsx"
 import { useState, useEffect } from "react"
 
 export default function Main() {
