@@ -1,0 +1,132 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: auto;
+  padding: 2rem;
+}
+
+.intro-paragraph {
+  max-width: 30rem;
+  font-size: 1.25rem;
+  margin-block: 0.5rem;
+  text-align:left;
+}
+
+@media(max-width: 970px) {
+  .intro-paragraph {
+    max-width: 25rem;
+    font-size: 1rem;
+  }
+}
+
+.reset-list-button {
+  padding: 1rem 6.5rem;
+  margin: 1rem;
+  background-color: lightblue;
+  border: 1px dashed rgb(150,150,150);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-list-button:active {
+  opacity: 0.7;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.search {
+  width: 25rem;
+  height: 2rem;
+  color: black;
+  border:dashed rgb(150,150,150);
+  padding: 1.25rem;
+  font-size: 0.9rem;
+}
+
+@media(max-width: 460px) {
+  .search {
+    width: 20rem;
+    font-size: 0.7rem;
+  }
+}
+
+.search:focus {
+  outline: none;
+  border: 3px dashed rgb(50,50,50); /* or your theme color */
+}
+
+.items-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.2rem;
+  margin-top: 10rem;
+}
+
+@media(max-width: 650px) {
+  .items-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  padding: 0.7rem 0.7rem;
+  background-color: rgb(214, 214, 214);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.9)
+}
+
+.item > img {
+  width: 12rem;
+  height: 12rem;
+  align-self: center;
+}
+
+.item p {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0.8rem;
+  text-shadow: 0 0 20px rgba(0,0,0,1);
+  text-decoration: underline;
+}
+
+.is-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem;
+}
+
+.buttons-container button {
+  padding: 0.5rem 2.5rem;
+  background-color: rgb(95, 228, 95);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease
+}
+
+.buttons-container button:hover {
+  opacity: 0.75;
+  transition: all 0.2s ease;
+}
+
+.buttons-container button:active {
+  opacity: 0.4;
+  transition: all 0.2s ease;
+}
+
+.buttons-container .no-button {
+  background-color: rgb(255, 0, 0);
+}

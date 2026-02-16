@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "SN Pro", sans-serif;
+  background-color: rgba(125, 125, 125, 0.415);
+  margin: 0;
+  padding: 0;
+}
