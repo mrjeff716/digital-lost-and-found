@@ -62,7 +62,7 @@ export default function Main() {
         Make sure to press the refresh List button below to get the most recent and updated version of the list
       </li>
 
-      <button className="reset-list-button" onClick={resetList}>Reset List</button>
+      <button className="reset-list-button" onClick={resetList}>Refresh List</button>
       
       <input onChange={(e) => {search(e)}} className="search" type="tel" placeholder="Please insert the ID of the missing item if available" />
 
