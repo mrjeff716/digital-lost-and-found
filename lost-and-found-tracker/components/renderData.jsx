@@ -3,24 +3,11 @@ import emailjs from '@emailjs/browser';
 export default function RenderData(props) {
 
   function isFound(id) {
-    // Update state first
-    props.setData((prevData) => {
-      const newData = prevData.map(datum => {
-        if (datum.id === id) {
-          return {...datum, isFound: true}
-        } else {
-          return {...datum}
-        }
-      });
-
       // Find the found item
-      const foundItem = newData.find(datum => datum.id === id);
-
-      // Send EmailJS email
+      const foundItem = props.data.find(datum => datum.id === id);
+      // Send EmailJS email 
       sendEmail(foundItem);
-
-      return newData;
-    });
+      return foundItem;
   }
 
   function sendEmail(item) {
@@ -49,10 +36,11 @@ export default function RenderData(props) {
   function isNotFound(id) {
     props.setData((prevData) => prevData.filter(datum => datum.id !== id));
   }
-
+  const image = String(props.datum.img) !== "no Image" ? props.datum.img : false
+  console.log(image)
   return (
     <div className="item">
-      <img src={props.datum.img} alt={`Item ${props.datum.id}`} />
+      {image ? <img src={image} alt={`Item ${props.datum.id}`} /> : <img src="lost-and-found-tracker/images/noImage.png" alt={`Item ${props.datum.id}`} />}
       <p>Id: {props.datum.id}</p>
       <p>Type: {props.datum.itemType}</p>
       <p>Condition: {props.datum.condition}</p>

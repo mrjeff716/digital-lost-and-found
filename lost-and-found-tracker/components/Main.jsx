@@ -1,40 +1,64 @@
-import { rawData, builtInRawData } from "../utils/data.js"
 import RenderData from "./renderData.jsx"
 import { useState, useEffect } from "react"
 
 export default function Main() {
 
-  const [data, setData] = useState(getInitialArray())
-  
-  function getInitialArray () {
-    const savedData = JSON.parse(localStorage.getItem('dataArrayKey'));
-    // Parse the saved string back to an array; use an empty array as a default if nothing is found
-    const rawDataSaved = JSON.parse(localStorage.getItem("savedRawData")) || rawData()
-    return savedData ? savedData : rawDataSaved;
-  };
-  
-  useEffect(() => {
-    localStorage.setItem("dataArrayKey", JSON.stringify(data))
-  }, [data])
+  const [allData, setAllData] = useState()
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
 
+  const getLatestData = () => {
+    setLoading(true)
+    fetch("https://sheetdb.io/api/v1/x78dwgs9fwn1d?sheet=Database")
+      .then(res => res.json())
+      .then(fetchedData => {
+        setData(fetchedData)
+        setAllData(fetchedData) // Save the full list here
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error("Error fetching sheet:", err)
+        setLoading(false)
+      })
+      console.log("data fetched")
+  }
+
+  console.log(allData)
+
+
+  useEffect(() => {
+    getLatestData()
+  }, [])
+  
   const dataHTML = data.map((datum, index) => {
-    return <RenderData datum = {datum} key = {index} /*isFound={isFound}setIsFound={setIsFound}*/ rawData={rawData} data={data} setData={setData}/>
+    return <RenderData datum = {datum} key = {index} /*isFound={isFound}setIsFound={setIsFound}*/ data={data} setData={setData}/>
   })
+  const filteredDataHTML = data.map((datum, index) => datum.isFound === "FALSE" && <RenderData datum = {datum} key = {index} /*isFound={isFound}setIsFound={setIsFound}*/ data={data} setData={setData}/> )
 
   function resetList() {
-    setData((prevData) => {return prevData = builtInRawData})
+    getLatestData()
   }
 
   function search(e) {
     setData(prevData => {
-      return (
-        builtInRawData.filter(datum => {
+      
+        if (data.length < 1) {
+          return allData
+        } else {
+          return (
+            data.filter(datum => {
           if(e.target.value === "") {
-            return rawData
+            setData(allData)
+            return data
+          } else {
+            return e.target.value === datum.id ? true : false
           }
-          return Number(e.target.value) === datum.id ? true : false
+          
         })
-      )
+          )
+        }
+        
+      
     })
     console.log("filtered")
   }
@@ -61,13 +85,18 @@ export default function Main() {
       <li className="intro-paragraph">
         Make sure to press the refresh List button below to get the most recent and updated version of the list
       </li>
+      <li className="intro-paragraph" style={{fontWeight: "bold"}}>
+        <a className="intro-paragraph" style={{color: "blue", textDecoration: "underline", cursor:"pointer"}}
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeFsTjbmguNZ-10QWgRbnAzy3_wbDxenGi4dY5i-CcrUEyL8g/viewform?usp=dialog"
+        target="_blank">Click here</a> to submit a lost item
+      </li>
 
       <button className="reset-list-button" onClick={resetList}>Refresh List</button>
       
       <input onChange={(e) => {search(e)}} className="search" type="tel" placeholder="Please insert the ID of the missing item if available" />
 
       <section className="items-list">
-        {dataHTML}
+        {filteredDataHTML}
       </section>
     </main>
   )
