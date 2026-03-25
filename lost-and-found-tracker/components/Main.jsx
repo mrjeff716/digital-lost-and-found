@@ -77,9 +77,6 @@ export default function Main() {
         🔎 Use the search bar to type the item ID or scroll down to look through the pictures.
       </li>
       <li className="intro-paragraph">
-        📍 If you find your item, note its ID and come to the lost & found to collect it.
-      </li>
-      <li className="intro-paragraph">
         You can remove a certain item from the list to facilitate searching.
       </li>
       <li className="intro-paragraph">
