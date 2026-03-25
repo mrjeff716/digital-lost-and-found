@@ -39,7 +39,7 @@ export default function Main() {
     getLatestData()
   }
 
-  function search(e) {
+  function searchById(e) {
     setData(prevData => {
       
         if (data.length < 1) {
@@ -62,6 +62,29 @@ export default function Main() {
     })
     console.log("filtered")
   }
+  function searchByCategory(e) {
+    setData(prevData => {
+      
+        if (data.length < 1) {
+          return allData
+        } else {
+          return (
+            data.filter(datum => {
+          if(e.target.value === "") {
+            setData(allData)
+            return data
+          } else {
+            return e.target.value === datum.itemType ? true : false
+          }
+          
+        })
+          )
+        }
+        
+      
+    })
+    console.log("filtered")
+  }
 
   return (
     <main>
@@ -74,7 +97,7 @@ export default function Main() {
         Each item is listed with a photo, description, and a unique ID.
       </li>
       <li className="intro-paragraph">
-        🔎 Use the search bar to type the item ID or scroll down to look through the pictures.
+        🔎 Use the search bar to type the item ID or to select your missing item's type or scroll down to look through the pictures.
       </li>
       <li className="intro-paragraph">
         You can remove a certain item from the list to facilitate searching.
@@ -90,7 +113,16 @@ export default function Main() {
 
       <button className="reset-list-button" onClick={resetList}>Refresh List</button>
       
-      <input onChange={(e) => {search(e)}} className="search" type="tel" placeholder="Please insert the ID of the missing item if available" />
+      <input onChange={(e) => {searchById(e)}} className="search" type="tel" placeholder="Please insert the ID of the missing item if available" />
+      <label className="intro-paragraph" style={{fontSize: "1rem"}}>--Please insert the type of the missing item if available--</label>
+      <select onChange={(e) => {searchByCategory(e)}} className="search" id="searchByDescription" placeholder="Please insert the type of the missing item if available" >
+        <option value="" style={{color: "black"}}>--Please insert the type of the missing item if available--</option>
+        <option>Hoodie</option>
+        <option>Jacket</option>
+        <option>Lunch box</option>
+        <option>Water bottle</option>
+        <option>Pencil case</option>
+      </select>
 
       <section className="items-list">
         {filteredDataHTML}
