@@ -40,7 +40,7 @@ export default function RenderData(props) {
   console.log(image)
   return (
     <div className="item">
-      {image ? <img src={image} alt={`Item ${props.datum.id}`} /> : <img src="/lost-and-found-tracker/images/noImage.png" alt={`Item ${props.datum.id}`} />}
+      {image ? <img src={image} alt={`Item ${props.datum.id}`} /> : <img src="/images/noImage.png" alt={`Item ${props.datum.id}`} />}
       <p>Id: {props.datum.id}</p>
       <p>Type: {props.datum.itemType}</p>
       <p>Condition: {props.datum.condition}</p>
