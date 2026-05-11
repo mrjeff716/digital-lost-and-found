@@ -1,5 +1,6 @@
 import RenderData from "./renderData.jsx"
 import { useState, useEffect } from "react"
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function Main() {
 
@@ -125,7 +126,9 @@ export default function Main() {
       </select>
 
       <section className="items-list">
-        {filteredDataHTML}
+        {filteredDataHTML ? filteredDataHTML : 
+          <LoadingSpinner />
+        }
       </section>
     </main>
   )

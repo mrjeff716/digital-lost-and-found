@@ -130,3 +130,9 @@ main {
 .buttons-container .no-button {
   background-color: rgb(255, 0, 0);
 }
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
