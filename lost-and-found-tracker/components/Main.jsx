@@ -7,6 +7,7 @@ export default function Main() {
   const [allData, setAllData] = useState()
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
+  const [loadingIcon, setLoadingIcon] = useState(true)
 
   const getLatestData = () => {
     setLoading(true)
@@ -16,6 +17,7 @@ export default function Main() {
         setData(fetchedData)
         setAllData(fetchedData) // Save the full list here
         setLoading(false)
+        setLoadingIcon(false)
       })
       .catch(err => {
         console.error("Error fetching sheet:", err)
@@ -89,7 +91,7 @@ export default function Main() {
 
   return (
     <main>
-      <h2>
+      <h2 style={{color: "rgb(0, 6, 48)"}}>
       Welcome to the Digital Lost & Found
       </h2>
 
@@ -126,9 +128,7 @@ export default function Main() {
       </select>
 
       <section className="items-list">
-        {filteredDataHTML ? filteredDataHTML : 
-          <LoadingSpinner />
-        }
+        {loadingIcon ? <LoadingSpinner /> : filteredDataHTML}
       </section>
     </main>
   )
