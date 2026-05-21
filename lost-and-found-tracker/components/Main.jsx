@@ -91,7 +91,7 @@ export default function Main() {
 
   return (
     <main>
-      <h2 style={{color: "rgb(0, 6, 48)"}}>
+      <h2 style={{color: "rgb(213, 213, 213)"}}>
       Welcome to the Digital Lost & Found
       </h2>
 

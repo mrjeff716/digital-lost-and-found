@@ -45,6 +45,7 @@ export default function RenderData(props) {
       <p>Id: {props.datum.id}</p>
       <p>Type: {props.datum.itemType}</p>
       <p>Condition: {props.datum.condition}</p>
+      <p>email: {props.datum.email}</p>
       <p>Description: {props.datum.description}</p>
 
       <div className="is-found-container">

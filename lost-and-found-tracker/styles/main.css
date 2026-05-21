@@ -12,7 +12,9 @@ main {
   font-size: 1.25rem;
   margin-block: 0.5rem;
   text-align:left;
-  color: rgb(0, 6, 48);
+  text-shadow: 0 0 35px rgb(0, 0, 0);
+  color: rgb(213, 213, 213);
+  font-weight: bold;
 }
 
 @media(max-width: 970px) {
@@ -41,8 +43,8 @@ main {
 .search {
   width: 25rem;
   height: 2rem;
-  color: rgb(0, 6, 48);
-  background-color: lightblue;;
+  color: rgb(0, 0, 0);
+  background-color: rgb(225, 225, 225);
   border:dashed rgb(150,150,150);
   padding: 1.25rem;
   font-size: 0.9rem;
@@ -93,9 +95,11 @@ main {
   font-size: 1rem;
   margin: 0;
   padding: 0.8rem;
-  color: rgb(0, 6, 48);
+  text-shadow: 0 0 35px rgb(0, 0, 0);
+  color: rgb(213, 213, 213);
   text-shadow: 0 0 25px rgba(0,0,0,1);
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .is-found-container {
@@ -103,6 +107,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-shadow: 0 0 35px rgb(0, 0, 0);
+  color: rgb(213, 213, 213);
 }
 
 .buttons-container {

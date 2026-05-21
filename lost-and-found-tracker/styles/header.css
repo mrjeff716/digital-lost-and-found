@@ -9,7 +9,8 @@ header {
 }
 
 header > h1 {
-  color: rgb(0, 6, 48);
+  text-shadow: 0 0 35px rgb(0, 0, 0);
+  color: rgb(213, 213, 213);
 }
 
 @media(max-width: 500px) {

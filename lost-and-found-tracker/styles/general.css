@@ -4,7 +4,8 @@
 
 body {
   font-family: "SN Pro", sans-serif;
-  background-color: rgba(39, 22, 63, 0.716);
+  /*background-color: rgba(39, 22, 63, 0.716);*/
+  background-color: #323232;
   margin: 0;
   padding: 0;
 }
